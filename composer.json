@@ -1,0 +1,34 @@
+{
+    "name": "ldrahnik/url-matcher",
+    "description": "",
+    "homepage": "https://github.com/ldrahnik/url-matcher",
+    "license": ["BSD-3-Clause"],
+    "type": "library",
+    "authors": [
+        {
+            "name": "Lukáš Drahník",
+            "email": "l.drahnik@gmail.com",
+            "homepage": "http://drahnik-lukas.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "l.drahnik@gmail.com",
+        "issues": "https://github.com/ldrahnik/url-matcher/issues"
+    },
+    "require": {
+        "php": ">= 5.4",
+        "nette/nette": "~2.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ViewKeeper\\": "src/"
+        },
+        "classmap": [
+            "src/exceptions.php"
+        ]
+    },
+    "require-dev": {
+        "nette/tester": "~1.3"
+    }
+}
