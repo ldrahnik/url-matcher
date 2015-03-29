@@ -40,7 +40,7 @@ class Matcher {
 	{
 		$this->mask = $mask;
 		$this->patterns = $patterns;
-		$this->offsets = $this->setOffsets($offsets);
+		$this->setOffsets($offsets);
 	}
 
 	/**
@@ -66,6 +66,46 @@ class Matcher {
 		if(count(array_unique($offsets))<count($offsets)) {
 			throw new DuplicatedOffset("Duplicated the same offset value.");
 		}
-		return Arrays::merge($offsets, $this->defaultOffsets);
+		$this->offsets = Arrays::merge($offsets, $this->defaultOffsets);
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getOffsets()
+	{
+		return $this->offsets;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getPatterns()
+	{
+		return $this->patterns;
+	}
+
+	/**
+	 * @param array $patterns
+	 */
+	public function setPatterns($patterns)
+	{
+		$this->patterns = $patterns;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getMask()
+	{
+		return $this->mask;
+	}
+
+	/**
+	 * @param string $mask
+	 */
+	public function setMask($mask)
+	{
+		$this->mask = $mask;
 	}
 } 
