@@ -24,7 +24,7 @@ class MatcherTest extends Tester\TestCase
 			'foo' => 1,
 			'bar' => 2
 		];
-		$mask = 'foo/bar';
+		$mask = '<foo>/<bar>';
 
 		$matcher = new Matcher($mask, $patterns);
 		Assert::equal('1/2', $matcher->parse());
@@ -33,7 +33,7 @@ class MatcherTest extends Tester\TestCase
 			'foo' => null,
 			'bar' => null
 		];
-		$mask = 'foo/bar';
+		$mask = '<foo>/<bar>';
 
 		$matcher = new Matcher($mask, $patterns);
 		Assert::equal('/', $matcher->parse());

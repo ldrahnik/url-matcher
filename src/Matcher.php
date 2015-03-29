@@ -48,15 +48,13 @@ class Matcher {
 	 */
 	public function parse()
 	{
-		$result = str_replace(array_keys($this->patterns), array_values($this->patterns), $this->mask);
-
 		$patterns = [];
 		foreach ($this->patterns as $k => $v) {
 			unset ($patterns[$k]);
 			$patterns[$this->offsets['separator_lft'] . $k . $this->offsets['separator_rgt']] = $v;
 		}
-
-		return $result;
+		
+		return str_replace(array_keys($patterns), array_values($patterns), $this->mask);
 	}
 
 	/**
