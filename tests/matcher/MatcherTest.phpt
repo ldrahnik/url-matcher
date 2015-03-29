@@ -18,7 +18,7 @@ require __DIR__ . '/bootstrap.php';
  */
 class MatcherTest extends Tester\TestCase
 {
-	function testParser()
+	function testMatcher()
 	{
 		$patterns = [
 			'foo' => 1,
