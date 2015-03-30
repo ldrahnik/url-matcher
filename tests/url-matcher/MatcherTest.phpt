@@ -62,7 +62,7 @@ class MatcherTest extends Tester\TestCase
 			'separator_lft' => ':',
 			'separator_rgt' => ':',
 			'optional_lft' => '[',
-			'optional_rgt' => '/]'
+			'optional_rgt' => ']'
 		];
 		$matcher = new Matcher($mask, $patterns);
 		$matcher->setOffsets($offsets);
