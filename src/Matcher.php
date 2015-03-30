@@ -80,6 +80,12 @@ class Matcher {
 	 */
 	public function setOffsets($offsets)
 	{
+		if(isset($offsets['optional_lft']) && strlen($offsets['optional_lft']) > 1) {
+			throw new InvalidParameter("Start char of optional block must be type of char:" . $offsets['optional_lft']);
+		}
+		if(isset($offsets['optional_rgt']) && strlen($offsets['optional_rgt']) > 1) {
+			throw new InvalidParameter("End char of optional block must be type of char:" . $offsets['optional_rgt']);
+		}
 		$this->offsets = Arrays::merge_only_exist_keys($this->defaultOffsets, $offsets);
 	}
 
