@@ -82,11 +82,16 @@ class Matcher {
 				$string = $this->block(substr($string, $i + 1));
 				$i = 0;
 			} else if($string[$i] == $this->offsets['optional_rgt']) {
-				$backup = $this->results;
-				foreach($backup as $key => $field) {
-					$backup[$key] = $field . substr($string, 0, $i);
+				if(empty($this->results)) {
+					$this->results[] = '';
+					$this->results[] = substr($string, 0, $i);
+				} else {
+					$backup = $this->results;
+					foreach($backup as $key => $field) {
+						$backup[$key] = $field . substr($string, 0, $i);
+					}
+					$this->results = array_merge($this->results, $backup);
 				}
-				$this->results = array_merge($this->results, $backup);
 				$this->depth--;
 
 				if($i + 1 == strlen($string)) {
@@ -100,7 +105,7 @@ class Matcher {
 				}
 			} else if($this->depth == 0) {
 				if(empty($this->results)) {
-					$this->results[0] = $string[$i];
+					$this->results[] = $string[$i];
 				} else {
 					foreach ($this->results as $key => $field) {
 						$this->results[$key] = $field . $string[$i];
