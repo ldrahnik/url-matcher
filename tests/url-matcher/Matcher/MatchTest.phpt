@@ -20,24 +20,16 @@ class MatchTest extends Tester\TestCase
 {
 	function testMatch()
 	{
-		$patterns = [
-			'foo' => 1,
-			'bar' => 2
-		];
 		$mask = '<foo>/<foo>';
-		$matcher = new Matcher($mask, $patterns);
+		$matcher = new Matcher($mask);
 
 		Assert::equal(true, $matcher->match('4/6'));
 	}
 
 	function testMatch2()
 	{
-		$patterns = [
-			'foo' => 1,
-			'bar' => 2
-		];
 		$mask = '<foo>[/<foo>]';
-		$matcher = new Matcher($mask, $patterns);
+		$matcher = new Matcher($mask);
 
 		Assert::equal(true, $matcher->match('4/6'));
 		Assert::equal(true, $matcher->match('4'));
