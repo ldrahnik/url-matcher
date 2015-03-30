@@ -80,7 +80,7 @@ class Matcher {
 			if($string[$i] == $this->offsets['optional_lft']) {
 				$this->depth++;
 				$string = $this->block(substr($string, $i + 1));
-				//$i = 0;
+				$i = 0;
 			} else if($string[$i] == $this->offsets['optional_rgt']) {
 				$backup = $this->results;
 				foreach($backup as $key => $field) {
@@ -96,7 +96,7 @@ class Matcher {
 						//error, ukonceni stringu bez vynoreni
 					}
 				} else {
-					return $i;
+					return substr($string, $i);
 				}
 			} else if($this->depth == 0) {
 				if(empty($this->results)) {
