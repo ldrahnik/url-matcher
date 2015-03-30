@@ -6,7 +6,7 @@ use	Tester;
 use	Tester\Assert;
 use UrlMatcher\Matcher;
 
-require __DIR__ . '/bootstrap.php';
+require __DIR__ . '/../bootstrap.php';
 
 /**
  * Class exceptionTest

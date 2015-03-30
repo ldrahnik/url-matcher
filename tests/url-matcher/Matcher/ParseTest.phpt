@@ -6,29 +6,18 @@ use UrlMatcher\Matcher;
 use	Tester;
 use	Tester\Assert;
 
-require __DIR__ . '/bootstrap.php';
+require __DIR__ . '/../bootstrap.php';
 
 /**
- * Class MatcherTest
+ * Class ParseTest
  *
  * @author Lukáš Drahník (http://drahnik-lukas.com/)
  * @package ldrahnik\MatcherTest\Tests
  *
  * @testCase
  */
-class MatcherTest extends Tester\TestCase
+class ParseTest extends Tester\TestCase
 {
-	function testMatch()
-	{
-		$patterns = [
-			'foo' => 1,
-			'bar' => 2
-		];
-		$mask = '<foo>/<foo>';
-		$matcher = new Matcher($mask, $patterns);
-
-		Assert::equal(true, $matcher->match('4/6'));
-	}
 
 	function testMatcherDefaults()
 	{
@@ -120,5 +109,5 @@ class MatcherTest extends Tester\TestCase
 	}
 }
 
-$test = new MatcherTest();
+$test = new ParseTest();
 $test->run();
