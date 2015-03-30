@@ -107,6 +107,22 @@ class ParseTest extends Tester\TestCase
 		];
 		Assert::equal($result, $matcher->parse());
 	}
+
+	function testMatcherOptional4() {
+		$patterns = [
+			'lang' => 'cz',
+			'presenter' => 'home',
+			'action' => 4
+		];
+		$mask = '[<lang>/]<presenter>/<action>';
+		$matcher = new Matcher($mask, $patterns);
+		$result =  [
+			'home/4',
+			'cz/home/4',
+		];
+
+		Assert::equal($result, $matcher->parse());
+	}
 }
 
 $test = new ParseTest();

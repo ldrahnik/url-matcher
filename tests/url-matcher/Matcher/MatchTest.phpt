@@ -34,6 +34,14 @@ class MatchTest extends Tester\TestCase
 		Assert::equal(true, $matcher->match('4/6'));
 		Assert::equal(true, $matcher->match('4'));
 	}
+
+	function testMatch3()
+	{
+		$mask = '[<lang>/]<presenter>[/<action>]';
+		$matcher = new Matcher($mask);
+
+		Assert::equal(true, $matcher->match('en/admin'));
+	}
 }
 
 $test = new MatchTest();
