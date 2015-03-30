@@ -34,12 +34,12 @@ create url
 	];
 	$mask = '[<lang>/]<presenter>/<action>';
 	$matcher = new Matcher($mask, $patterns);
-    $result = $matcher->parse();
+    $results = $matcher->parse();
     
-    // array [
-		'home/4',
-		'cz/home/4',
-	];
+    /*array [
+		 'home/4',
+		 'cz/home/4',
+	];*/
 ```
 
 confirm url
@@ -49,6 +49,5 @@ confirm url
 	$matcher = new Matcher($mask);
 
 	$result = $matcher->match('en/admin');
-	
 	// true
 ```
