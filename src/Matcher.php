@@ -4,6 +4,7 @@ namespace UrlMatcher;
 
 use UrlMatcher\Checker\Checker;
 use UrlMatcher\Utils\Arrays;
+use UrlMatcher\Utils\Url;
 
 /**
  * Class Matcher
@@ -68,7 +69,30 @@ class Matcher {
 	 */
 	public function match($url)
 	{
-		if(substr_count($url, '/') == substr_count($this->mask, '/')) {
+		$req_blocks = 0;
+		$opt_blocks = 0;
+
+		$optional = false;
+		$depth = 0;
+		for($i = 0; $i < strlen($this->mask); $i++) {
+			if ($this->mask[$i] == $this->offsets['optional_lft']) {
+				$depth++;
+				$optional = true;
+			} else if ($this->mask[$i] == $this->offsets['optional_rgt'] && $depth == 1) {
+				$optional = false;
+			}
+
+			if ($this->mask[$i] == $this->offsets['separator_lft']) {
+				if ($optional) {
+					$opt_blocks++;
+				} else {
+					$req_blocks++;
+				}
+			}
+		}
+
+		$url_blocks = Url::getBlocksCount($url);
+		if($url_blocks == $req_blocks || ($url_blocks > $req_blocks && $url_blocks <= $req_blocks + $opt_blocks)) {
 			return true;
 		}
 		return false;

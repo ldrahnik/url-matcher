@@ -29,6 +29,19 @@ class MatchTest extends Tester\TestCase
 
 		Assert::equal(true, $matcher->match('4/6'));
 	}
+
+	function testMatch2()
+	{
+		$patterns = [
+			'foo' => 1,
+			'bar' => 2
+		];
+		$mask = '<foo>[/<foo>]';
+		$matcher = new Matcher($mask, $patterns);
+
+		Assert::equal(true, $matcher->match('4/6'));
+		Assert::equal(true, $matcher->match('4'));
+	}
 }
 
 $test = new MatchTest();
