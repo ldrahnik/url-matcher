@@ -30,7 +30,7 @@ class Checker {
 
 	/**
 	 * @param $string
-	 * @return array
+	 * @return array | string
 	 */
 	public function decode($string)
 	{
