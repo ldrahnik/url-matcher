@@ -57,6 +57,21 @@ class Matcher {
 		return str_replace(array_keys($patterns), array_values($patterns), $this->mask);
 	}
 
+
+	/**
+	 * Test if url corresponds with $mask
+	 *
+	 * @param $url
+	 * @return bool
+	 */
+	public function match($url)
+	{
+		if(substr_count($url, '/') == substr_count($this->mask, '/')) {
+			return true;
+		}
+		return false;
+	}
+
 	/**
 	 * @param array $offsets
 	 * @return array

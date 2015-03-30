@@ -18,6 +18,18 @@ require __DIR__ . '/bootstrap.php';
  */
 class MatcherTest extends Tester\TestCase
 {
+	function testMatch()
+	{
+		$patterns = [
+			'foo' => 1,
+			'bar' => 2
+		];
+		$mask = '<foo>/<foo>';
+		$matcher = new Matcher($mask, $patterns);
+
+		Assert::equal(true, $matcher->match('4/6'));
+	}
+
 	function testMatcherDefaults()
 	{
 		$patterns = [
