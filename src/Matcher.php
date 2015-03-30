@@ -63,9 +63,6 @@ class Matcher {
 	 */
 	public function setOffsets($offsets)
 	{
-		if(count(array_unique($offsets))<count($offsets)) {
-			throw new DuplicatedOffset("Duplicated the same offset value.");
-		}
 		$this->offsets = Arrays::merge($offsets, $this->defaultOffsets);
 	}
 

@@ -18,7 +18,7 @@ require __DIR__ . '/bootstrap.php';
  */
 class MatcherTest extends Tester\TestCase
 {
-	function testMatcher()
+	function testMatcherDefaults()
 	{
 		$patterns = [
 			'foo' => 1,
@@ -37,6 +37,24 @@ class MatcherTest extends Tester\TestCase
 
 		$matcher = new Matcher($mask, $patterns);
 		Assert::equal('/', $matcher->parse());
+	}
+
+	function testMatcherOffsets()
+	{
+		$patterns = [
+			'foo' => 1,
+			'bar' => 2
+		];
+		$mask = ':foo:/:bar:';
+		$offsets = [
+			'separator_lft' => ':',
+			'separator_rgt' => ':',
+			'optional_lft' => '[',
+			'optional_rgt' => '/]'
+		];
+		$matcher = new Matcher($mask, $patterns);
+		$matcher->setOffsets($offsets);
+		Assert::equal('1/2', $matcher->parse());
 	}
 }
 

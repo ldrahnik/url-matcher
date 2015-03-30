@@ -21,13 +21,3 @@ class InvalidParameter extends \LogicException
 {
 
 }
-
-/**
- * Class InvalidParameter
- * @package ldrahnik\ViewKeeper
- */
-class DuplicatedOffset extends \LogicException
-{
-
-}
-
