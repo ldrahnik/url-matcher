@@ -18,12 +18,16 @@ class Url {
 	 */
 	public static function getBlocksCount($url)
 	{
-		$url_blocks = 1;
-		for($i = 0; $i < strlen($url); $i++) {
-			if($url[$i] == '/' && $i != 0 && $i+1 != strlen($url)) {
-				$url_blocks++;
+		if(strlen($url) > 0) {
+			$url_blocks = 1;
+			for ($i = 0; $i < strlen($url); $i++) {
+				if ($url[$i] == '/' && $i != 0 && $i + 1 != strlen($url)) {
+					$url_blocks++;
+				}
 			}
+			return $url_blocks;
+		} else {
+			return 0;
 		}
-		return $url_blocks;
 	}
 }
