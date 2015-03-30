@@ -36,7 +36,7 @@ class Matcher {
 	 * @param $patterns
 	 * @param $offsets
 	 */
-	public function __construct($mask, array $patterns, array $offsets = [])
+	public function __construct($mask, array $patterns = [], array $offsets = [])
 	{
 		$this->mask = $mask;
 		$this->patterns = $patterns;
