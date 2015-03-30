@@ -19,15 +19,24 @@ require __DIR__ . '/bootstrap.php';
 class exceptionsTest extends Tester\TestCase
 {
 
+	function testInvalidParameter()
 	{
 		Assert::exception(function() {
 			$offsets = [
 				'optional_lft' => '[[[',
 				'optional_rgt' => ']]]]'
 			];
-			$matcher = new Matcher(array(), array());
+			$matcher = new Matcher('', array(), array());
 			$matcher->setOffsets($offsets);
 		}, 'UrlMatcher\InvalidParameter');
+	}
+
+	function testInvalidMask()
+	{
+		Assert::exception(function() {
+			$matcher = new Matcher('[[', array(), array());
+			$matcher->parse();
+		}, 'UrlMatcher\InvalidMask');
 	}
 }
 

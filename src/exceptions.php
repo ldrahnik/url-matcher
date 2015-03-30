@@ -21,3 +21,12 @@ class InvalidParameter extends \LogicException
 {
 
 }
+
+/**
+ * Class InvalidMask
+ * @package ldrahnik\ViewKeeper
+ */
+class InvalidMask extends \LogicException
+{
+
+}

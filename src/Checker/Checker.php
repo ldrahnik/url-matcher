@@ -2,6 +2,8 @@
 
 namespace UrlMatcher\Checker;
 
+use UrlMatcher\InvalidMask;
+
 /**
  * Class Checker
  *
@@ -31,12 +33,15 @@ class Checker {
 	/**
 	 * @param $string
 	 * @return array | string
+	 * @throw InvalidMask
 	 */
 	public function decode($string)
 	{
 		$this->block($string);
 		if(count($this->results) > 1) {
 			return $this->results;
+		} else if(empty($this->results)) {
+			throw new InvalidMask("Mask is not valid.");
 		}
 		return $this->results[0];
 	}
@@ -69,7 +74,7 @@ class Checker {
 					if($this->depth == 0) {
 						return substr($string, $i);
 					} else {
-						// TODO: error, string ends before emersion
+						throw new InvalidMask("Mask is not valid.");
 					}
 				} else {
 					return substr($string, $i);
