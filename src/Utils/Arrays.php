@@ -23,4 +23,16 @@ class Arrays
 			return array_merge($defaults, $arr);
 		}
 	}
+
+	/**
+	 * @param $arr
+	 * @param $defaults
+	 * @return array
+	 */
+	public static function merge_only_exist_keys($arr, $defaults)
+	{
+		$merged = array_intersect_key($defaults, $arr) + $arr;
+		ksort($merged);
+		return $merged;
+	}
 }

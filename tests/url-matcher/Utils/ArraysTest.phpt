@@ -34,6 +34,24 @@ class ArraysTest extends Tester\TestCase
 		];
 		Assert::equal($result, Arrays::merge($arr, $defaults));
 	}
+
+	function testMergeOnlyExistKeys()
+	{
+		$defaults = [
+			'a' => 'test',
+			'c' => 'test',
+		];
+		$arr = [
+			'a' => 'test2',
+			'b' => 'test',
+			'c' => 'test2'
+		];
+		$result = [
+			'a' => 'test2',
+			'c' => 'test2'
+		];
+		Assert::equal($result, Arrays::merge_only_exist_keys($defaults, $arr));
+	}
 }
 
 $test = new ArraysTest();

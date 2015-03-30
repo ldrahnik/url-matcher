@@ -78,7 +78,7 @@ class Matcher {
 	 */
 	public function setOffsets($offsets)
 	{
-		$this->offsets = Arrays::merge($offsets, $this->defaultOffsets);
+		$this->offsets = Arrays::merge_only_exist_keys($this->defaultOffsets, $offsets);
 	}
 
 	public function setOffsetsDefault()
