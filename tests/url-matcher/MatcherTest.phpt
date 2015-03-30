@@ -68,6 +68,22 @@ class MatcherTest extends Tester\TestCase
 		$matcher->setOffsets($offsets);
 		Assert::equal('1/2', $matcher->parse());
 	}
+
+	function testMatcherOptional()
+	{
+		$patterns = [
+			'foo' => 111,
+			'bar' => 222
+		];
+		$mask = '<foo>[/<bar>]';
+		$matcher = new Matcher($mask, $patterns);
+
+		$result = [
+			'111',
+			'111/222'
+		];
+		Assert::equal($result, $matcher->parse());
+	}
 }
 
 $test = new MatcherTest();
