@@ -34,8 +34,8 @@ create url
 	];
 	$mask = '[<lang>/]<presenter>/<action>';
 	$matcher = new Matcher($mask, $patterns);
+	
     $results = $matcher->parse();
-    
     /*array [
 		 'home/4',
 		 'cz/home/4',
