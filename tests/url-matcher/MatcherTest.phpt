@@ -75,11 +75,11 @@ class MatcherTest extends Tester\TestCase
 			'foo' => 111,
 			'bar' => 222
 		];
-		$mask = '<foo>[/<bar>]';
+		$mask = '[<foo>/]<bar>';
 		$matcher = new Matcher($mask, $patterns);
 
 		$result = [
-			'111',
+			'222',
 			'111/222'
 		];
 		Assert::equal($result, $matcher->parse());
@@ -97,6 +97,24 @@ class MatcherTest extends Tester\TestCase
 		$result = [
 			'111/111',
 			'111/222/111'
+		];
+		Assert::equal($result, $matcher->parse());
+	}
+
+	function testMatcherOptional3()
+	{
+		$patterns = [
+			'foo' => 111,
+			'bar' => 222
+		];
+		$mask = '<foo>[/<bar>]/<foo>[/<bar>]';
+		$matcher = new Matcher($mask, $patterns);
+
+		$result = [
+			'111/111',
+			'111/222/111',
+			'111/111/222',
+			'111/222/111/222'
 		];
 		Assert::equal($result, $matcher->parse());
 	}
