@@ -81,6 +81,11 @@ class Matcher {
 		$this->offsets = Arrays::merge($offsets, $this->defaultOffsets);
 	}
 
+	public function setOffsetsDefault()
+	{
+		$this->offsets = $this->defaultOffsets;
+	}
+
 	/**
 	 * @return array
 	 */
