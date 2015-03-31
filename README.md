@@ -14,7 +14,7 @@ ldrahnik/url-matcher requires PHP 5.4 or higher.
 Installation
 ------------
 
-Install keeper to your project using  [Composer](http://getcomposer.org/):
+Install url-matcher to your project using  [Composer](http://getcomposer.org/):
 
 ```sh
 $ composer require ldrahnik/url-matcher
