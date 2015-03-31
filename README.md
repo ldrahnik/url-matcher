@@ -26,7 +26,6 @@ Usage
 create url
 
 ```php
-
     $patterns = [
 		'lang' => 'cz',
 		'presenter' => 'home',
