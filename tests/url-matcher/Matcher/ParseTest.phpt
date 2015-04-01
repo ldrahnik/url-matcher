@@ -50,11 +50,10 @@ class ParseTest extends Tester\TestCase
 		$offsets = [
 			'separator_lft' => ':',
 			'separator_rgt' => ':',
-			'optional_lft' => '[',
-			'optional_rgt' => ']'
+			'optional_lft' => '(',
+			'optional_rgt' => ')'
 		];
-		$matcher = new Matcher($mask, $patterns);
-		$matcher->setOffsets($offsets);
+		$matcher = new Matcher($mask, $patterns, $offsets);
 		Assert::equal('1/2', $matcher->parse());
 	}
 
