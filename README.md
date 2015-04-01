@@ -50,3 +50,16 @@ confirm url
 	$result = $matcher->match('en/admin');
 	// true
 ```
+
+Configuration
+-------------
+
+```php
+	$default = [
+		'separator_lft' => '<',		
+		'separator_rgt' => '>',		
+		'optional_lft' => '[',		
+		'optional_rgt' => ']'
+	];
+	$matcher = new Matcher(..., ..., $default);
+```
