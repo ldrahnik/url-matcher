@@ -122,6 +122,28 @@ class ParseTest extends Tester\TestCase
 
 		Assert::equal($result, $matcher->parse());
 	}
+
+	function testOffsets() {
+		$patterns = [
+			'lang' => 'cz',
+			'presenter' => 'home',
+			'action' => 4
+		];
+		$mask = '(:lang:/):presenter:/:action:';
+		$offsets = [
+			'separator_lft' => ':',     //default <
+			'separator_rgt' => ':',     //default >
+			'optional_lft' => '(',      //default [
+			'optional_rgt' => ')'       //default ]
+		];
+		$matcher = new Matcher($mask, $patterns, $offsets);
+		$result =  [
+			'home/4',
+			'cz/home/4',
+		];
+
+		Assert::equal($result, $matcher->parse());
+	}
 }
 
 $test = new ParseTest();
