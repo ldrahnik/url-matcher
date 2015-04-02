@@ -144,6 +144,32 @@ class ParseTest extends Tester\TestCase
 
 		Assert::equal($result, $matcher->parse());
 	}
+
+	function testOptionalMask() {
+		$mask = '<foo>[/<bar>]/<foo>[/<bar>]';
+		$matcher = new Matcher($mask);
+
+		$result = [
+			'<foo>/<foo>',
+			'<foo>/<bar>/<foo>',
+			'<foo>/<foo>/<bar>',
+			'<foo>/<bar>/<foo>/<bar>'
+		];
+		Assert::equal($result, $matcher->parse());
+
+		$patterns = [
+			'foo' => 111,
+			'bar' => 222
+		];
+		$matcher->setPatterns($patterns);
+		$result = [
+			'111/111',
+			'111/222/111',
+			'111/111/222',
+			'111/222/111/222'
+		];
+		Assert::equal($result, $matcher->parse());
+	}
 }
 
 $test = new ParseTest();
