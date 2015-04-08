@@ -46,9 +46,12 @@ class Matcher {
 	}
 
 	/**
+	 * Parse current Mask. Is possible to force return format Array.
+	 *
+	 * @param $arr
 	 * @return string
 	 */
-	public function parse()
+	public function parse($arr = false)
 	{
 		$patterns = [];
 		foreach ($this->patterns as $k => $v) {
@@ -58,7 +61,7 @@ class Matcher {
 		$sub_patterns = str_replace(array_keys($patterns), array_values($patterns), $this->mask);
 
 		$checker = new Checker($this->offsets['optional_lft'], $this->offsets['optional_rgt']);
-		return $checker->decode($sub_patterns);
+		return $checker->decode($sub_patterns, $arr);
 	}
 
 	/**

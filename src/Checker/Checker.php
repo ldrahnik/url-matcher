@@ -32,13 +32,14 @@ class Checker {
 
 	/**
 	 * @param $string
+	 * @param $arr
 	 * @return array | string
 	 * @throw InvalidMask
 	 */
-	public function decode($string)
+	public function decode($string, $arr)
 	{
 		$this->block($string);
-		if(count($this->results) > 1) {
+		if(count($this->results) > 1 || $arr) {
 			return $this->results;
 		} else if(empty($this->results)) {
 			throw new InvalidMask("Mask is not valid.");

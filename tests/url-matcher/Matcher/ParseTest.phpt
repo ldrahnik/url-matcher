@@ -170,6 +170,18 @@ class ParseTest extends Tester\TestCase
 		];
 		Assert::equal($result, $matcher->parse());
 	}
+
+	function testOptionalAlwaysArrayParam()
+	{
+		$patterns = [
+			'foo' => 1,
+			'bar' => 2
+		];
+		$mask = '<foo>/<bar>';
+
+		$matcher = new Matcher($mask, $patterns);
+		Assert::equal(true, is_array($matcher->parse(true)));
+	}
 }
 
 $test = new ParseTest();
