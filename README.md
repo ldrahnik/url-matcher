@@ -50,6 +50,25 @@ confirm url
 	$result = $matcher->match('en/admin');
 	// true
 ```
+Examples
+------------
+
+```php
+	$mask = 'root/<folder>/<subfolder>/<file>.latte';
+	
+	$matcher = new UrlMatcher\Matcher($mask, [
+		'folder' => '*',
+		'subfolder' => 'foo',
+		'file' => '*'
+	]);
+	
+	$mask = $matcher->parse();
+	// root/*/foo/*.latte
+
+	foreach (glob($mask) as $filename) {
+		echo basename($filename);
+	}
+```
 
 Configuration
 -------------
