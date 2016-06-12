@@ -7,7 +7,7 @@ use UrlMatcher\InvalidMask;
 /**
  * Class Checker
  *
- * @author Lukáš Drahník (http://drahnik-lukas.com/)
+ * @author Lukáš Drahník (http://ldrahnik.com)
  * @package ldrahnik\UrlMatcher\Checker
  */
 class Checker {

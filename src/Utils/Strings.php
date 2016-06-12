@@ -5,7 +5,7 @@ namespace UrlMatcher\Utils;
 /**
  * Class Strings
  *
- * @author Lukáš Drahník (http://drahnik-lukas.com/)
+ * @author Lukáš Drahník (http://ldrahnik.com)
  * @package ldrahnik\UrlMatcher\Utils
  */
 class Strings {

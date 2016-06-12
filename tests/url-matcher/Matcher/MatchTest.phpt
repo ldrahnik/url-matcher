@@ -11,7 +11,7 @@ require __DIR__ . '/../bootstrap.php';
 /**
  * Class MatchTest
  *
- * @author Lukáš Drahník (http://drahnik-lukas.com/)
+ * @author Lukáš Drahník (http://ldrahnik.com)
  * @package ldrahnik\MatcherTest\Tests
  *
  * @testCase
