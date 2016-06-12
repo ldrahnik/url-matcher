@@ -5,7 +5,7 @@ php:
     - 5.6
 
 script:
-    - vendor/bin/tester tests -s -j 1
+    - vendor/bin/tester -p php -c ./tests/php.ini-unix ./tests/
 
 after_failure:
     # Print *.actual content
