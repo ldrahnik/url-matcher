@@ -7,17 +7,16 @@
     "authors": [
         {
             "name": "Lukáš Drahník",
-            "homepage": "http://drahnik-lukas.com",
-            "role": "Developer"
+            "homepage": "http://ldrahnik.com"
         }
     ],
     "support": {
-        "email": "l.drahnik@gmail.com",
+        "email": "ldrahnik@gmail.com",
         "issues": "https://github.com/ldrahnik/url-matcher/issues"
     },
     "require": {
         "php": ">= 5.4",
-        "nette/nette": ">=2.3.0"
+        "nette/di": "~2.3.0"
     },
     "autoload": {
         "psr-4": {
@@ -28,6 +27,7 @@
         ]
     },
     "require-dev": {
-        "nette/tester": "~1.3"
+        "nette/tester": "~1.7.1",
+        "nette/nette": "~2.3.0"
     }
 }
