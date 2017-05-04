@@ -26,6 +26,7 @@
             "src/exceptions.php"
         ]
     },
+    "minimum-stability": "dev",
     "require-dev": {
         "nette/tester": "~1.7.1",
         "nette/nette": "~2.3.0"
