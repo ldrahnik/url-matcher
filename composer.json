@@ -28,7 +28,7 @@
     },
     "minimum-stability": "dev",
     "require-dev": {
-        "nette/tester": "~1.7.1",
-        "nette/nette": "~2.3.0"
+        "nette/tester": "@dev",
+        "nette/nette": "@dev"
     }
 }
