@@ -2,7 +2,6 @@ language: php
 
 php:
   - 7.0
-  - hhvm
 
 script:
     - vendor/bin/tester tests -s -j 1 -c ./tests/php.ini-unix
