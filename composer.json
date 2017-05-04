@@ -16,7 +16,7 @@
     },
     "require": {
         "php": ">=7.0",
-        "nette/di": "dev-master"
+        "nette/di": "@dev"
     },
     "autoload": {
         "psr-4": {
