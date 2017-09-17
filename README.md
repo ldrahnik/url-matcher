@@ -3,6 +3,7 @@ ldrahnik/url-matcher
 
 [![Build Status](https://travis-ci.org/ldrahnik/url-matcher.svg)](https://travis-ci.org/ldrahnik/url-matcher)
 [![Latest stable](https://img.shields.io/packagist/v/ldrahnik/url-matcher.svg)](https://packagist.org/packages/ldrahnik/url-matcher)
+[![Downloads total](https://img.shields.io/packagist/dt/ldrahnik/url-matcher.svg?style=flat-square)](https://packagist.org/packages/ldrahnik/url-matcher)
 
 Requirements
 ------------
